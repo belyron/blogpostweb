@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>Blog App</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1><%= blogPost.title %></h1>
+    <p><%= blogPost.content %></p>
+    <% if (blogPost.content.length > 100) { %>
+      <button id="readMoreButton">Read More</button>
+      <p id="fullContent" style="display: none;"><%= blogPost.content %></p>
+    <% } %>
+    <a href="/">Back to Home</a>
+    
+    <script>
+      const readMoreButton = document.getElementById('readMoreButton');
+      const fullContent = document.getElementById('fullContent');
+    
+      readMoreButton.addEventListener('click', () => {
+        fullContent.style.display = 'block';
+        readMoreButton.style.display = 'none';
+      });
+    </script>
+</body>
+</html>
+
